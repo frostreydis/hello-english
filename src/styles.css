@@ -1,0 +1,174 @@
+:root{
+  --bg:#f6f7fb; --card:#fff; --text:#1d2433; --muted:#667085; --line:#e4e7ee;
+  --blue:#1d4ed8; --blue-soft:#e8effd; --red:#dc2626; --red-soft:#fdecec;
+  --green:#12805c; --green-soft:#e6f6ef; --amber:#b25e09; --amber-soft:#fff4e5;
+  --radius:14px; --shadow:0 1px 3px rgba(16,24,40,.08),0 1px 2px rgba(16,24,40,.04);
+}
+@media (prefers-color-scheme:dark){
+  :root{--bg:#10141c; --card:#181e29; --text:#e7eaf0; --muted:#98a2b3; --line:#2a3242;
+    --blue:#8ab4f8; --blue-soft:#1b2a42; --red:#ff6b6b; --red-soft:#3a1d22;
+    --green:#4cc38a; --green-soft:#16302a; --amber:#f0a44b; --amber-soft:#35281a;}
+  /* У темній темі синій світлий, і білий текст на ньому майже не читається */
+  .btn.primary,.subtabs button.active,.seg button.active{color:#0b1220}
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{font:16px/1.55 "Segoe UI",system-ui,-apple-system,Roboto,Arial,sans-serif;background:var(--bg);color:var(--text)}
+a{color:var(--blue)}
+h1,h2,h3,h4{line-height:1.25;margin:.2em 0 .5em}
+h1{font-size:1.55rem} h2{font-size:1.3rem} h3{font-size:1.1rem} h4{font-size:1rem}
+header.top{position:sticky;top:0;z-index:20;background:var(--card);border-bottom:1px solid var(--line)}
+.top-inner{max-width:1180px;margin:0 auto;display:flex;align-items:center;gap:14px;padding:8px 16px}
+.brand{font-weight:700;white-space:nowrap;display:flex;align-items:center;gap:8px}
+.logo{display:inline-block;flex:none;width:30px;height:16px;border-radius:3px;overflow:hidden;box-shadow:0 0 0 1px var(--line)}
+.logo svg{display:block;width:100%;height:100%}
+nav.tabs{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none}
+nav.tabs a{padding:8px 10px;border-radius:10px;text-decoration:none;color:var(--muted);white-space:nowrap;font-weight:500}
+nav.tabs a.active{background:var(--blue-soft);color:var(--blue)}
+nav.tabs a .lbl-s{display:none}
+main{max-width:1180px;margin:0 auto;padding:18px 16px 90px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:16px 18px;margin:0 0 14px}
+.grid{display:grid;gap:14px}
+.g2{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+.g3{grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
+.muted{color:var(--muted)} .small{font-size:.88rem} .center{text-align:center}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.spacer{flex:1}
+.btn{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);background:var(--card);color:var(--text);padding:8px 14px;border-radius:10px;font:inherit;font-weight:500;cursor:pointer;text-decoration:none}
+.btn.primary{background:var(--blue);border-color:var(--blue);color:#fff}
+.btn.danger{color:var(--red);border-color:var(--red)}
+.btn.small{padding:4px 10px;font-size:.9rem}
+.btn:disabled{opacity:.5;cursor:default}
+.pill{display:inline-block;padding:2px 9px;border-radius:999px;font-size:.8rem;font-weight:600;background:var(--blue-soft);color:var(--blue)}
+.pill.green{background:var(--green-soft);color:var(--green)}
+.pill.amber{background:var(--amber-soft);color:var(--amber)}
+.pill.red{background:var(--red-soft);color:var(--red)}
+.pill.gray{background:var(--line);color:var(--muted)}
+.bar{height:10px;background:var(--line);border-radius:99px;overflow:hidden}
+.bar>i{display:block;height:100%;background:linear-gradient(90deg,var(--blue),#3b82f6);border-radius:99px}
+.stat{font-size:1.6rem;font-weight:700}
+.say{color:var(--blue);font-weight:600;cursor:pointer;border-bottom:1px dashed transparent}
+.say::after{content:" 🔊";font-size:.75em;opacity:.55}
+.nosay .say::after,.dict-en .say::after,.dict-ex .say::after{content:""}
+table{border-collapse:collapse;width:100%;margin:8px 0 12px;font-size:.95rem}
+th,td{border:1px solid var(--line);padding:6px 9px;text-align:left;vertical-align:top}
+th{background:var(--blue-soft);font-weight:600}
+.tblwrap{overflow-x:auto}
+.note{background:var(--amber-soft);border-left:4px solid var(--amber);padding:10px 14px;border-radius:8px;margin:10px 0}
+.tip{background:var(--blue-soft);border-left:4px solid var(--blue);padding:10px 14px;border-radius:8px;margin:10px 0}
+.good{background:var(--green-soft);border-left:4px solid var(--green);padding:10px 14px;border-radius:8px;margin:10px 0}
+.subtabs{display:flex;gap:6px;flex-wrap:wrap;margin:6px 0 14px}
+.subtabs button{border:1px solid var(--line);background:var(--card);color:var(--muted);padding:6px 12px;border-radius:99px;font:inherit;cursor:pointer}
+.subtabs button.active{background:var(--blue);border-color:var(--blue);color:#fff}
+ul.check{list-style:none;padding-left:0} ul.check li{padding:3px 0 3px 26px;position:relative}
+ul.check li::before{content:"✓";position:absolute;left:4px;color:var(--green);font-weight:700}
+.lesson-item{display:flex;align-items:center;gap:12px;padding:10px 12px;border:1px solid var(--line);border-radius:12px;margin:6px 0;background:var(--card);text-decoration:none;color:var(--text)}
+.lesson-item .num{font-weight:700;color:var(--blue);min-width:40px}
+.ex-box{max-width:640px;margin:0 auto}
+.ex-q{font-size:1.15rem;margin:6px 0 14px}
+.opts{display:grid;gap:8px}
+.opt{text-align:left;border:1.5px solid var(--line);background:var(--card);color:var(--text);padding:11px 14px;border-radius:12px;font:inherit;cursor:pointer}
+.opt.ok{border-color:var(--green);background:var(--green-soft)}
+.opt.bad{border-color:var(--red);background:var(--red-soft)}
+input[type=text],input[type=number],input[type=search],select,textarea{font:inherit;font-size:16px;padding:10px 12px;border:1.5px solid var(--line);border-radius:10px;background:var(--card);color:var(--text);width:100%}
+input[type=text]:focus,textarea:focus{outline:none;border-color:var(--blue)}
+input.ok{border-color:var(--green);background:var(--green-soft)} input.bad{border-color:var(--red);background:var(--red-soft)}
+.tokens{display:flex;flex-wrap:wrap;gap:6px;min-height:46px;padding:8px;border:1.5px dashed var(--line);border-radius:12px;margin:6px 0}
+.tok{padding:6px 11px;border-radius:9px;border:1px solid var(--line);background:var(--blue-soft);color:var(--text);cursor:pointer;font:inherit}
+.feedback{margin-top:12px;padding:10px 14px;border-radius:10px}
+.feedback.ok{background:var(--green-soft)} .feedback.bad{background:var(--red-soft)} .feedback.near{background:var(--amber-soft)}
+.flash{min-height:180px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:8px}
+.flash .front{font-size:1.7rem;font-weight:700}
+.flash .back{font-size:1.25rem}
+.srs-btns{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:12px}
+.srs-btns .btn{justify-content:center;flex-direction:column;gap:0}
+.srs-btns small{font-weight:400;color:var(--muted);font-size:.75rem}
+.big-phrase{font-size:1.5rem;font-weight:700;color:var(--blue);margin:6px 0}
+.timer{font-variant-numeric:tabular-nums;font-size:1.4rem;font-weight:700}
+details.stage{margin:0 0 12px}
+details.stage>summary{cursor:pointer;list-style:none}
+details.stage>summary::-webkit-details-marker{display:none}
+details.mod{border:1px solid var(--line);border-radius:12px;padding:8px 12px;margin:8px 0;background:var(--card)}
+details.mod>summary{cursor:pointer;font-weight:600}
+.kv{display:grid;grid-template-columns:150px 1fr;gap:4px 12px;margin-top:8px}
+.kv b{color:var(--muted);font-weight:600}
+.done-mark{color:var(--green);font-weight:700}
+.week-plan td:first-child{white-space:nowrap;font-weight:600}
+.today-row{background:var(--blue-soft)}
+.toast{position:fixed;left:50%;bottom:84px;transform:translateX(-50%);background:var(--text);color:var(--bg);padding:9px 16px;border-radius:10px;z-index:50;opacity:0;transition:opacity .2s;pointer-events:none}
+.toast.show{opacity:.95}
+/* Підсвітка при наведенні лише там, де є миша: на сенсорному екрані вона «залипає» після дотику */
+@media (hover:hover){
+  .btn:hover,.lesson-item:hover,.opt:hover:not(:disabled),.ic:hover{border-color:var(--blue)}
+  .btn.primary:hover{filter:brightness(1.08)}
+  .say:hover{border-bottom-color:var(--blue)}
+}
+@media (pointer:coarse){.kbd{display:none}}
+.lc-more{margin-top:8px}
+.lc-more>summary{cursor:pointer;padding:4px 0}
+.lc-more>.row{margin-top:4px!important}
+.update-bar{position:fixed;left:50%;bottom:20px;transform:translateX(-50%);z-index:60;display:flex;align-items:center;gap:10px;background:var(--card);color:var(--text);border:1px solid var(--blue);border-radius:12px;padding:8px 10px 8px 14px;box-shadow:0 4px 16px rgba(16,24,40,.18);max-width:calc(100% - 24px)}
+.warn-banner{background:var(--amber-soft);border:1px solid var(--amber);color:var(--text);padding:8px 12px;border-radius:10px;margin-bottom:12px;font-size:.92rem}
+/* Вісім вкладок із повними підписами вміщаються не на кожному екрані, а ширина залежить від шрифту й емодзі системи.
+   Тому views2.js → fitNav вимірює навігацію: тісно — компактні вкладки (як на телефоні), все одно тісно — без назви біля логотипа */
+@media (min-width:701px){
+  header.nav-compact nav.tabs a{display:flex;flex-direction:column;align-items:center;padding:4px 8px;font-size:.85rem;line-height:1.25}
+  header.nav-compact nav.tabs a .lbl{display:none}
+  header.nav-compact nav.tabs a .lbl-s{display:block;font-size:.72rem}
+  header.nav-tight .brand-name{display:none}
+}
+@media (max-width:700px){
+  body{font-size:15.5px}
+  .top-inner{padding:8px 12px}
+  nav.tabs{position:fixed;bottom:0;left:0;right:0;background:var(--card);border-top:1px solid var(--line);padding:6px 6px calc(6px + env(safe-area-inset-bottom));justify-content:space-around;z-index:30}
+  nav.tabs a{flex:1;min-width:0;padding:6px 2px;font-size:.78rem;display:flex;flex-direction:column;align-items:center}
+  nav.tabs a .lbl{display:none}
+  nav.tabs a .lbl-s{display:block;font-size:.68rem}
+  .kv{grid-template-columns:1fr}
+  .srs-btns{grid-template-columns:repeat(2,1fr)}
+  .card{padding:14px}
+  h1{font-size:1.3rem}
+  main{padding-bottom:calc(90px + env(safe-area-inset-bottom))}
+  .toast{bottom:calc(84px + env(safe-area-inset-bottom))}
+  .update-bar{bottom:calc(76px + env(safe-area-inset-bottom))}
+  /* Шапка уроку: мета видна лише на теорії, вкладки — одним рядком із прокруткою, щоб вправа була на першому екрані */
+  .lesson-head:not(.tab-theory) .lesson-goals{display:none}
+  .subtabs{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;margin-bottom:4px}
+  .subtabs button{flex:none}
+  /* «Програма» на телефоні відкривається з «Уроків»: восьма вкладка в нижній навігації не вміщується */
+  nav.tabs a.wide-only{display:none}
+  .dict-row{flex-wrap:wrap}
+  .dict-actions{width:100%;justify-content:flex-start}
+  .ic{min-width:44px;height:40px}
+}
+.ipa{font-family:"Segoe UI","Lucida Sans Unicode","Arial Unicode MS",system-ui,sans-serif;color:var(--muted);font-size:.92em}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.seg button{border:0;background:var(--card);color:var(--muted);padding:6px 10px;font:inherit;font-size:.9rem;cursor:pointer}
+.seg button+button{border-left:1px solid var(--line)}
+.seg button.active{background:var(--blue);color:#fff}
+.row.nowrap{flex-wrap:nowrap}
+label.small.muted>input,label.small.muted>.row{margin-top:3px}
+label.small.muted{display:block}
+.dict-row{display:flex;align-items:flex-start;gap:10px;padding:10px 4px;border-bottom:1px solid var(--line)}
+.dict-row:last-child{border-bottom:0}
+.dict-row.flash-row{background:var(--blue-soft);border-radius:10px;transition:background .3s}
+.dict-row.editing{display:block}
+.dict-main{flex:1;min-width:0}
+.dict-en{font-size:1.08rem}
+.dict-en .pill{font-size:.72rem;vertical-align:middle}
+.dict-uk{margin-top:2px}
+.dict-ex{margin-top:3px;font-style:italic}
+.dict-actions{display:flex;gap:4px;flex-wrap:wrap;justify-content:flex-end}
+.dict-edit input{margin-top:3px}
+.ic{min-width:38px;height:36px;border:1px solid var(--line);border-radius:9px;background:var(--card);color:var(--text);font:inherit;cursor:pointer;padding:0 6px}
+.card.inner{box-shadow:none;margin-top:12px;background:var(--bg)}
+.file-btn{position:relative}
+code{background:var(--blue-soft);padding:1px 5px;border-radius:5px;font-size:.88em}
+.flash .ipa{font-size:1rem}
+.theory h3{margin-top:1.1em}
+@media print{
+  header.top,nav.tabs,.btn,.subtabs,.no-print{display:none!important}
+  body{background:#fff;color:#000} .card{box-shadow:none;border-color:#ccc}
+  details{display:block} details>*{display:block}
+  main{padding:0}
+}
